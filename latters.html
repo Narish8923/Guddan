@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Letters for Guddan 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #1f0036, #0f001c);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin: 30px 0;
+      font-size: 3em;
+      text-shadow: 0 0 10px #ff00ff, 0 0 30px #00ffff;
+    }
+    
+    p1 {
+      margin: 20px 0;
+      font-size: 2em;
+      text-shadow: 0 0 10px #ff00ff, 0 0 30px #00ffff;
+    }
+
+    .envelope-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 50px 20px;
+    }
+
+    .envelope {
+      background: linear-gradient(145deg, #ff00ff33, #00ffff33);
+      width: 220px;
+      height: 140px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #ff00ff;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #00ffff;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 70px;
+      background: #ff00ff;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transition: transform 0.4s ease;
+    }
+
+    .letter {
+      position: absolute;
+      top: 75px;
+      left: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+      color: #fff;
+      font-size: 0.95em;
+      text-align: left;
+      animation: type 2s steps(50, end);
+      box-shadow: 0 0 15px #00ffffaa;
+    }
+
+    @keyframes type {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .show .letter {
+      display: block;
+    }
+
+    .show .flap {
+      transform: rotateX(180deg);
+    }
+
+    .back-btn {
+      margin-top: 50px;
+      padding: 12px 30px;
+      border: none;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 50px;
+      box-shadow: 0 0 15px #ff00ff;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💌 Love Letters for Guddan</h1>
+<p1>babu ek ek kar ke latter pe tap karo</p1>
+  <div class="envelope-container">
+    <!-- Letter 1 -->
+    <div class="envelope" onclick="openLetter(this)">
+      <div class="flap"></div>
+      <div class="letter">
+        <p>Guddan, jab se tum zindagi me aayi ho, har din ek nayi khushi ban gaya hai 💖</p>
+      </div>
+    </div>
+
+    <!-- Letter 2 -->
+    <div class="envelope" onclick="openLetter(this)">
+      <div class="flap"></div>
+      <div class="letter">
+        <p>Tumhari muskan mere liye poore jahan se pyari hai... aur hamesha rahegi 😍</p>
+      </div>
+    </div>
+
+    <!-- Letter 3 -->
+    <div class="envelope" onclick="openLetter(this)">
+      <div class="flap"></div>
+      <div class="letter">
+        <p>Bas ek wada chahiye — tum hamesha meri Guddan rahogi ❤️ Forever yours, Narish.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="index.html" class="back-btn">🏠 Back to Home</a>
+
+  <script>
+    function openLetter(element) {
+      element.classList.toggle("show");
+    }
+  </script>
+  
+    <!-- 🔽 NEXT PAGE BUTTON with Arrow Image -->
+<a href="heartbeat.html" class="next-btn">
+  <img src="arrow.png" alt="Next" class="arrow-img" />
+</a>
+
+<style>
+  .next-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .arrow-img {
+    width: 180px;
+    height: auto;
+    animation: pulseArrow 1.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 12px #00ffff);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes pulseArrow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+</style>
+</body>
+</html>

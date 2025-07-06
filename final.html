@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🎂 Happy Birthday Guddan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0a001f, #1a0033);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 40px;
+      font-size: 2.8em;
+      text-shadow: 0 0 15px #ff00ff;
+      animation: glowText 2s infinite;
+    }
+
+    @keyframes glowText {
+      0%, 100% { text-shadow: 0 0 10px #ff00ff; }
+      50% { text-shadow: 0 0 20px #00ffff; }
+    }
+
+    .cake {
+      margin: 40px auto;
+    }
+
+    .cake img {
+      width: 220px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #ff00ff;
+      animation: pulseCake 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseCake {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .btn-cut {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff00ff;
+      transition: 0.3s ease;
+      animation: pulseBtn 1.5s infinite;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .btn-cut:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
+      margin-top: 50px;
+      font-size: 1.4em;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 15px #00ffff;
+      display: none;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin: 60px auto;
+      padding: 10px 20px;
+      max-width: 1000px;
+      justify-content: center;
+    }
+
+    .photo-gallery img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffffcc, 0 0 30px #ff00ffaa;
+      transition: transform 0.4s, box-shadow 0.4s;
+      animation: zoomIn 1s ease-in-out;
+    }
+
+    .photo-gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px #ff00ffcc, 0 0 40px #00ffffaa;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎂 Happy Birthday Guddan 🎉</h1>
+
+<!-- 🎂 Real Cake Image -->
+<div class="cake">
+  <img src="assets/real-cake.png" alt="Real Cake for Guddan">
+</div>
+
+<!-- 🎁 Cut Cake Button -->
+<button class="btn-cut" onclick="cutCake()">🎁 Click to Cut Cake & See Surprise</button>
+
+<!-- 💬 Message After Cake Cut -->
+<div class="message" id="finalMessage">
+  💖 *I Love You Guddan — Forever Yours, Narish* 💖 <br><br>
+  🥳 May your life be full of happiness, dreams, and our togetherness forever. 🥰
+</div>
+
+<!-- 🖼️ GF's Premium Photo Gallery -->
+<div class="photo-gallery" id="photoGallery">
+  <img src="assets/gf1.jpg" alt="Guddan 1">
+  <img src="assets/gf2.jpg" alt="Guddan 2">
+  <img src="assets/gf3.jpg" alt="Guddan 3">
+  <img src="assets/gf4.jpg" alt="Guddan 4">
+  <img src="assets/gf5.jpg" alt="Guddan 5">
+  <img src="assets/gf6.jpg" alt="Guddan 6">
+  <img src="assets/gf7.jpg" alt="Guddan 7">
+  <img src="assets/gf8.jpg" alt="Guddan 8">
+  <img src="assets/gf9.jpg" alt="Guddan 9">
+  <img src="assets/gf10.jpg" alt="Guddan 10">
+</div>
+
+<!-- 🎊 Confetti Canvas -->
+<canvas id="confetti"></canvas>
+
+<!-- 🎵 Music Control -->
+<audio id="boom" src="assets/boom.mp3" preload="auto"></audio>
+<audio id="birthday" src="assets/happy_birthday.mp3" preload="auto"></audio>
+<audio id="romantic" src="assets/romantic_love.mp3" preload="auto"></audio>
+
+<script>
+  function cutCake() {
+    // 💥 Boom + Birthday Song
+    document.getElementById('boom').play();
+    document.getElementById('birthday').play();
+
+    // 💖 Romantic song after 20s
+    setTimeout(() => {
+      document.getElementById('romantic').play();
+    }, 20000);
+
+    // 💬 Show message
+    document.getElementById('finalMessage').style.display = 'block';
+
+    // 🎊 Confetti
+    launchConfetti();
+  }
+
+  const canvas = document.getElementById('confetti');
+  const ctx = canvas.getContext('2d');
+  let W = window.innerWidth;
+  let H = window.innerHeight;
+  canvas.width = W;
+  canvas.height = H;
+
+  let particles = [];
+
+  function randomColor() {
+    const colors = ['#ff0', '#0ff', '#f0f', '#0f0', '#f00', '#00f'];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  function createParticle() {
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H - H,
+      r: Math.random() * 6 + 4,
+      d: Math.random() * 100,
+      color: randomColor(),
+      tilt: Math.floor(Math.random() * 10) - 10,
+      tiltAngle: 0,
+      tiltAngleIncrement: Math.random() * 0.1 + 0.05
+    };
+  }
+
+  for (let i = 0; i < 150; i++) {
+    particles.push(createParticle());
+  }
+
+  function drawConfetti() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.lineWidth = p.r / 2;
+      ctx.strokeStyle = p.color;
+      ctx.moveTo(p.x + p.tilt + p.r / 3, p.y);
+      ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 3);
+      ctx.stroke();
+    });
+    update();
+  }
+
+  function update() {
+    particles.forEach(p => {
+      p.tiltAngle += p.tiltAngleIncrement;
+      p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+      p.tilt = Math.sin(p.tiltAngle - p.d / 3) * 15;
+      if (p.y > H) {
+        p.y = -10;
+        p.x = Math.random() * W;
+      }
+    });
+  }
+
+  function launchConfetti() {
+    setInterval(drawConfetti, 20);
+  }
+
+  window.addEventListener('resize', () => {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+  });
+</script>
+
+<!-- Footer -->
+<div class="footer-signature">✨ Aapka Babu Narish Choudhury Ji ✨</div>
+
+<style>
+  .footer-signature {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 20px 10px;
+    background: linear-gradient(to right, #00ffff, #ff00ff, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    animation: shine 3s infinite linear;
+    font-family: 'cursive', 'Segoe UI', sans-serif;
+    text-shadow: 0 0 10px #ff00ff88, 0 0 20px #00ffff88;
+  }
+
+  @keyframes shine {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+</style>
+
+<!-- 💞 Dual Photo Frame -->
+<div class="dual-frame-section">
+  <h2 class="dual-title">❤️ Narish & Guddan — Jodi No. 1 💖</h2>
+  <div class="dual-photo-frame">
+    <div class="photo-box">
+      <img src="assets/narish.jpg" alt="Narish">
+      <p class="name-tag">Narish</p>
+    </div>
+    <div class="heart-symbol">💘</div>
+    <div class="photo-box">
+      <img src="assets/guddan11.jpg" alt="Guddan">
+      <p class="name-tag">Guddan</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dual-frame-section {
+    text-align: center;
+  }
+
+  .dual-title {
+    font-size: 1.8em;
+    background: linear-gradient(to right, #ff00ff, #00ffff, #ffff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px #ff00ff99;
+    animation: shineText 3s infinite;
+    margin-bottom: 20px;
+  }
+
+  @keyframes shineText {
+    0% { text-shadow: 0 0 10px #ff00ff99; }
+    50% { text-shadow: 0 0 20px #00ffffcc; }
+    100% { text-shadow: 0 0 10px #ff00ff99; }
+  }
+
+  .dual-photo-frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .photo-box {
+    position: relative;
+    width: 150px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 25px #00ffffaa;
+    transition: transform 0.4s;
+  }
+
+  .photo-box img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .photo-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff00ffcc;
+  }
+
+  .name-tag {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 1em;
+    font-family: cursive;
+  }
+
+  .heart-symbol {
+    font-size: 2.5em;
+    animation: pulseHeart 1.2s infinite;
+    text-shadow: 0 0 10px #ff0077;
+  }
+
+  @keyframes pulseHeart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+</style>
+<!-- 🔙 Back to Home Button -->
+<a href="index.html" class="back-home-btn">🏠 Go to Home Page</a>
+
+<style>
+  .back-home-btn {
+    display: inline-block;
+    margin: 60px auto 30px;
+    padding: 15px 35px;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #00ffff, #ff00ff, #ffff00);
+    border-radius: 50px;
+    box-shadow: 0 0 20px #ff00ffaa, 0 0 30px #00ffffaa;
+    animation: neonPulse 2s infinite ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .back-home-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff00ff, 0 0 40px #00ffff;
+  }
+
+  @keyframes neonPulse {
+    0%, 100% {
+      box-shadow: 0 0 15px #ff00ffaa, 0 0 20px #00ffffaa;
+    }
+    50% {
+      box-shadow: 0 0 30px #ff00ffcc, 0 0 35px #00ffffff;
+    }
+  }
+</style>
+
+</body>
+</html>

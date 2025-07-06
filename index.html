@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Guddan 💖</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* 🔻 Arrow + Hint CSS */
+    .arrow-container {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 9999;
+    }
+
+    .arrow-hint {
+      font-size: 1.2em;
+      color: #ff00cc;
+      margin-bottom: 10px;
+      animation: blink 1s infinite;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+
+    .arrow {
+      font-size: 3em;
+      color: #00ffff;
+      animation: bounce 1.5s infinite;
+      text-shadow: 0 0 15px #00ffff;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+
+  <div class="center">
+    <h1 class="glow">🎉 Happy Birthday Guddan 🎉</h1>
+    <img class="photo" src="guddan.jpg" alt="Guddan" />
+
+    <!-- Magic Button -->
+    <button class="btn pulse glow-btn" onclick="playVoice()">🔊 Click karo baby, dekho magic!</button>
+    <p class="hint-text">👇 Yaha click karo baby — Magic tumhare liye hai 💖</p>
+
+    <!-- Cake -->
+    <div class="cake" id="cake">
+      <img src="cake.png" alt="Cake" onclick="cutCake()" />
+      <p>🎂 Click cake to cut 🎂</p>
+    </div>
+
+    <!-- Boom -->
+    <div class="explosion" id="explosion">💥</div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">💌 You are the light of my life!</div>
+
+    <!-- Gift -->
+    <div class="gift" id="gift">
+      <img src="gift.png" alt="Gift" onclick="openGift()" />
+      <p>🎁 Click to open surprise 🎁</p>
+    </div>
+
+    <!-- Message -->
+    <div class="message" id="message">
+      <div class="typewriter">Tum meri zindagi ho, tumhari muskurahat meri duniya hai 💕</div>
+    </div>
+
+    <!-- Final I Love You -->
+    <div id="finalText" class="final-glow">💖 I ❤️ YOU GUDDAN - Forever Yours, Narish 💌</div>
+
+    <!-- Share Button -->
+    <a href="https://wa.me/?text=Happy+Birthday+Guddan+💖+From+Narish" class="share-btn" target="_blank">📲 Share on WhatsApp</a>
+  </div>
+
+  <!-- Canvas Fireworks -->
+  <canvas id="fireworks"></canvas>
+
+<!-- 🔽 NEXT PAGE BUTTON with Arrow Image -->
+<a href="journey.html" class="next-btn">
+  <img src="arrow.png" alt="Next" class="arrow-img" />
+</a>
+
+<style>
+  .next-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .arrow-img {
+    width: 200px;
+    height: auto;
+    animation: pulseArrow 1.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 12px #00ffff);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes pulseArrow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+</style>
+
+  <!-- Sounds -->
+  <audio id="bgm" autoplay loop><source src="romantic.mp3" type="audio/mpeg" /></audio>
+  <audio id="voice"><source src="voice.mp3" type="audio/mpeg" /></audio>
+  <audio id="boom"><source src="boom.mp3" type="audio/mpeg" /></audio>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

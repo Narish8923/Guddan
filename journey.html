@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Journey - Guddan & Narish</title>
+  <style>
+    /* Gradient Background Animation */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #ff0080, #0f0c29);
+      background-size: 600% 600%;
+      animation: gradientBG 18s ease infinite;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .journey-container {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff;
+      margin-bottom: 50px;
+      animation: flicker 3s infinite;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.85; }
+      100% { opacity: 1; }
+    }
+
+    .memory {
+      display: flex;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, rgba(255, 0, 255, 0.1), rgba(0, 255, 255, 0.1));
+      border: 2px solid rgba(255, 0, 255, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+      margin: 40px 0;
+      padding: 25px;
+      transition: 0.5s ease;
+      opacity: 0;
+      transform: translateY(80px);
+      backdrop-filter: blur(5px);
+    }
+
+    .memory.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .memory img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      margin-right: 20px;
+      box-shadow: 0 0 15px #00ffff;
+      border: 2px solid #ff00cc;
+    }
+
+    .caption {
+      flex: 1;
+      margin-top: 10px;
+    }
+
+    .caption h2 {
+      font-size: 1.8em;
+      color: #ff66ff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+
+    .caption p {
+      font-size: 1.1em;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    .home-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      background: linear-gradient(45deg, #00ffff, #ff00ff);
+      color: white;
+      text-decoration: none;
+      padding: 14px 35px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 15px #ff00cc;
+      transition: 0.3s;
+    }
+
+    .home-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #00ffff, #ff0080);
+    }
+
+    @media (max-width: 768px) {
+      .memory {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .memory img {
+        margin: 0 0 15px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="journey-container">
+    <h1 class="title">🕰️ Our Journey Together</h1>
+
+    <!-- Memory 1 -->
+    <div class="memory">
+      <img src="memory1.jpg" alt="First Memory" />
+      <div class="caption">
+        <h2>✨ First Time We Met</h2>
+        <p>Jab phale baar mane tumhe dheka tha 🤭 phale nazar ka pyar 💫</p>
+<p style="color: #00ff9f; font-weight: bold; font-size: 1.2em;">
+  Jab maine tumhe pehli baar dekha tha na Guddan, dil wahi rukh gaya tha... uss pal mein kuch toh magical tha. Tumhari muskurahat ne meri duniya roshan kar di. Tab se lekar aaj tak, har roz tumse milne ka ek naya reason milta hai 💖✨
+</p>
+      </div>
+    </div>
+
+    <!-- Memory 2 -->
+    <div class="memory">
+      <img src="memory2.jpg" alt="Our Laughs" />
+      <div class="caption">
+        <h2>😄 Our First I love you 🤞</h2>
+        <p>Woh Pal... jab tumne mera hat thama tha life time ke liye ❣️💖</p>
+       <p style="color: #00ffff; font-weight: bold; font-size: 1.2em;">
+  Guddan, jab tumne pehli baar “I love you” bola tha na, meri duniya ek pal ke liye ruk gayi thi... Wo lafz mere dil ke har kone mein gunj uthe the 💖 Us raat main sirf muskurata raha, baar baar tumhare vo words yaad karke. Tumhari awaaz mere liye us din se ek nasha ban gayi 😘🌙
+</p>
+      </div>
+      
+    </div>
+
+    <!-- Memory 3 -->
+    <div class="memory">
+      <img src="memory3.jpg" alt="Special Day" />
+      <div class="caption">
+        <h2>🌸 That Beautiful Day</h2>
+        <p>Woh pal jab sirf tum aur main the... aur hawa ❤️</p>
+        <p style="color: #39ff14; font-weight: bold; font-size: 1.3em; text-shadow: 0 0 10px #39ff14;">
+  jab maine tumhe pehli baar real me dekha tha Guddan, laga jaise sapna sach ho gaya ✨ Tumhara chehra, tumhari muskurahat... sab kuch perfect tha. Us pal me duniya rukh gayi thi, sirf tum aur main the. Mera dil sirf ek hi baat keh raha tha — yahi ladki meri zindagi hai 💚💫
+</p>
+      </div>
+    </div>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-btn">🏠 Back to Home</a>
+  </div>
+
+  <!-- Scroll Reveal JS -->
+  <script>
+    window.addEventListener("scroll", reveal);
+
+    function reveal() {
+      var reveals = document.querySelectorAll(".memory");
+      for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let revealTop = reveals[i].getBoundingClientRect().top;
+        let revealPoint = 100;
+
+        if (revealTop < windowHeight - revealPoint) {
+          reveals[i].classList.add("show");
+        }
+      }
+    }
+
+    // On load trigger (in case user doesn't scroll)
+    reveal();
+  </script>
+  
+  <!-- 🔽 NEXT PAGE BUTTON with Arrow Image -->
+<a href="latters.html" class="next-btn">
+  <img src="arrow.png" alt="Next" class="arrow-img" />
+</a>
+
+<style>
+  .next-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .arrow-img {
+    width: 180px;
+    height: auto;
+    animation: pulseArrow 1.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 12px #00ffff);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes pulseArrow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+</style>
+</body>
+</html>

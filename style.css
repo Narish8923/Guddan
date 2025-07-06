@@ -1,0 +1,200 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* BACKGROUND with animated gradient */
+body {
+  background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
+  background-size: 600% 600%;
+  animation: gradientShift 15s ease infinite;
+  overflow-x: hidden;
+  color: white;
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* CENTER content */
+.center {
+  text-align: center;
+  padding: 50px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* GLOWING HEADING */
+.glow {
+  font-size: 3em;
+  color: #fff;
+  text-shadow: 0 0 5px #f0f, 0 0 20px #0ff, 0 0 30px #f0f;
+  margin-bottom: 20px;
+}
+
+/* USER PHOTO */
+.photo {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #ff00cc;
+  margin-bottom: 20px;
+}
+
+/* BUTTON MAGIC */
+.btn {
+  background: #ff0080;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff0080;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #ff66b2;
+  transform: scale(1.1);
+}
+.pulse {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.glow-btn {
+  animation: glowing 2s infinite;
+}
+@keyframes glowing {
+  0% { box-shadow: 0 0 5px #ff00cc; }
+  50% { box-shadow: 0 0 20px #ff00cc, 0 0 40px #ff00cc; }
+  100% { box-shadow: 0 0 5px #ff00cc; }
+}
+
+/* HINT BELOW BUTTON */
+.hint-text {
+  font-size: 20px;
+  color: #ff66cc;
+  margin-bottom: 30px;
+  font-weight: bold;
+  animation: pop 1s ease-in-out;
+  text-shadow: 0 0 8px #ff66cc;
+}
+
+/* CAKE + GIFT */
+.cake, .gift {
+  margin: 20px 0;
+}
+.cake img, .gift img {
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.cake img:hover, .gift img:hover {
+  transform: scale(1.1);
+}
+
+/* EXPLOSION */
+.explosion {
+  font-size: 5em;
+  color: yellow;
+  display: none;
+  animation: boom 0.5s ease-in-out;
+}
+@keyframes boom {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* POPUP */
+.popup {
+  display: none;
+  font-size: 1.5em;
+  margin-top: 20px;
+  color: #ff66cc;
+  animation: pop 0.5s ease-in-out;
+  text-shadow: 0 0 10px #ff00cc;
+}
+@keyframes pop {
+  0% { transform: translateY(-20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* TYPEWRITER TEXT */
+.typewriter {
+  font-size: 1.2em;
+  margin-top: 30px;
+  width: 80%;
+  margin: auto;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 6s steps(40, end), blink 0.75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 80%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* FINAL LOVE TEXT */
+.final-glow {
+  font-size: 2em;
+  margin-top: 30px;
+  color: #fff;
+  text-shadow: 0 0 15px #00ffff, 0 0 25px #ff00ff;
+  display: none;
+}
+
+/* SHARE BUTTON */
+.share-btn {
+  display: inline-block;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 0 10px #25D366;
+  margin-top: 30px;
+  transition: 0.3s;
+}
+.share-btn:hover {
+  background: #1ebe5a;
+  transform: scale(1.05);
+}
+
+/* FIREWORKS */
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* FLOATING HEARTS */
+.hearts::before {
+  content: "💖 💘 💝 💗 💓 💞 💕";
+  position: absolute;
+  font-size: 2em;
+  animation: floatHearts 6s linear infinite;
+  top: 10%;
+  left: 50%;
+}
+@keyframes floatHearts {
+  0% { transform: translateY(0) translateX(-50%); opacity: 1; }
+  100% { transform: translateY(-600px) translateX(-50%); opacity: 0; }
+}

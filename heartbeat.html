@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Heartbeat of Love ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle, #1f002f, #0d001c);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      padding: 60px 20px;
+    }
+
+    .guddan-pic img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #ff00ff;
+      box-shadow: 0 0 30px #ff00ffaa, 0 0 10px #00ffffaa;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 15px #ff00cc, 0 0 30px #00ffff;
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      width: 150px;
+      height: 150px;
+      background: red;
+      position: relative;
+      margin: 40px auto;
+      transform: rotate(-45deg);
+      animation: beat 1s infinite;
+      box-shadow: 0 0 30px #ff0055;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 150px;
+      height: 150px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -75px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 75px;
+      top: 0;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: rotate(-45deg) scale(1);
+      }
+      50% {
+        transform: rotate(-45deg) scale(1.2);
+      }
+    }
+
+    p {
+      font-size: 1.4em;
+      color: #ffccff;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+
+    .next-btn {
+      margin-top: 40px;
+      padding: 12px 30px;
+      background: linear-gradient(to right, #00ffff, #ff00ff);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-decoration: none;
+      box-shadow: 0 0 15px #ff00ff;
+      transition: 0.3s;
+    }
+
+    .next-btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(to right, #ff00ff, #00ffff);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Guddan Image -->
+    <div class="guddan-pic">
+      <img src="guddan2.jpg" alt="Guddan" />
+    </div>
+
+    <h1>❤️ You Are My Heartbeat</h1>
+
+    <div class="heart"></div>
+
+    <p>Har dhadkan me tum ho, har sans me Guddan ho 💖</p>
+
+     <!-- 🔽 NEXT PAGE BUTTON with Arrow Image -->
+<a href="wishes.html" class="next-btn">
+  <img src="arrow.png" alt="Next" class="arrow-img" />
+</a>
+
+<style>
+  .next-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .arrow-img {
+    width: 180px;
+    height: auto;
+    animation: pulseArrow 1.5s infinite ease-in-out;
+    filter: drop-shadow(0 0 12px #00ffff);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  @keyframes pulseArrow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+  }
+</style>
+  </div>
+</body>
+</html>
